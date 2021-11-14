@@ -29,7 +29,6 @@ export class UsersService {
     return {'data': null, 'message': message };
   }
   async login(user: any){
-    console.log(`user`, user)
     const payload_user = user._doc;
     const payload = { 
       phone: payload_user.phone,

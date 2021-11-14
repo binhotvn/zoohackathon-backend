@@ -18,7 +18,7 @@ export class CrawlController {
   @UsePipes(new ValidationPipe({ transform: true }))
   @Post(':id/processed')
   updateResult(@Param('id', new ParseUUIDPipe) id: string, @Body() result: score){
-    console.log(`result`, result)
+
     return this.crawlService.processed(id, result);
 
   }

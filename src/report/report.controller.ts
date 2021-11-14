@@ -20,12 +20,7 @@ export class ReportController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.reportService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateReportDto: UpdateReportDto) {
-    return this.reportService.update(+id, updateReportDto);
+    return this.reportService.findOne(id);
   }
 
   @Delete(':id')

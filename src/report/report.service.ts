@@ -10,7 +10,6 @@ export class ReportService {
   constructor(
     @InjectModel('Report') private ReportModule: Model<ReportDocument>
   ){
-
   }
   async create(createReportDto: CreateReportDto) {
     const newReport = new this.ReportModule(createReportDto);
@@ -19,18 +18,14 @@ export class ReportService {
   }
 
   findAll() {
-    return `This action returns all report`;
+    return this.ReportModule.find({}).exec()
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} report`;
+  async findOne(id: string) {
+    return await this.ReportModule.findOne({_id: id}).exec()
   }
 
-  update(id: number, updateReportDto: UpdateReportDto) {
-    return `This action updates a #${id} report`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} report`;
+  async remove(id: number) {
+    return await this.ReportModule.remove({_id: id}).exec();
   }
 }

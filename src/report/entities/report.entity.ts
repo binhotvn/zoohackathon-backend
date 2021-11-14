@@ -1,5 +1,5 @@
 import { Prop, Schema} from "@nestjs/mongoose";
-import { IsNotEmpty, IsPhoneNumber } from "class-validator";
+import { IsNotEmpty, IsOptional, IsPhoneNumber } from "class-validator";
 import { v4 as uuidv4 } from 'uuid';
 
 @Schema()
@@ -11,11 +11,13 @@ export class Report {
     @IsNotEmpty()
     link: string;
 
-    @Prop({required: true})
+    @Prop({required: true, default: "nf"})
+    @IsOptional()
     address: string;
 
-    @Prop({required: true})
+    @Prop({required: true, default:  "nf"})
     @IsPhoneNumber('VN')
+    @IsOptional()
     phone: string;
 
 }

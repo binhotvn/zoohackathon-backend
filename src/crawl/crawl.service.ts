@@ -18,7 +18,7 @@ export class CrawlService {
       "score": {
         score: -1
       },
-
+      createdDate: new Date().toISOString()
     }
     Object.assign(createCrawlDto, newData);
     const post = new this.CrawlModule(createCrawlDto);
