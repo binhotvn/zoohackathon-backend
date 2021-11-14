@@ -12,7 +12,14 @@ export class ReportService {
   ){
   }
   async create(createReportDto: CreateReportDto) {
+    if(createReportDto.phone == ""){
+      createReportDto.phone = "nf";
+    }
+    if(createReportDto.address == ""){
+      createReportDto.address = "nf";
+    }
     const newReport = new this.ReportModule(createReportDto);
+    
     const result = await newReport.save();
     return result;
   }
