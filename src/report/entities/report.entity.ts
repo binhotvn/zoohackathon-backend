@@ -16,7 +16,6 @@ export class Report {
     address: string;
 
     @Prop({required: true, default:  "nf"})
-    @IsPhoneNumber('VN')
     @IsOptional()
     phone: string;
 
